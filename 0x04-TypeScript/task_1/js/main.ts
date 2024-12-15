@@ -1,4 +1,3 @@
-// Teacher interface
 interface Teacher {
   firstName: string;
   lastName: string;
@@ -6,34 +5,6 @@ interface Teacher {
   location: string;
   yearsOfExperience?: number;
   [key: string]: any;
-}
-
-class TeacherClass implements Teacher {
-  public firstName: string;
-  public lastName: string;
-  public fullTimeEmployee: boolean;
-  public yearsOfExperience?: number;
-  public location: string;
-
-  constructor(
-    firstName: string,
-    lastName: string,
-    fullTimeEmployee: boolean,
-    location: string,
-    yearsOfExperience?: number
-  ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.fullTimeEmployee = fullTimeEmployee;
-    this.location = location;
-    if (yearsOfExperience) {
-      this.yearsOfExperience = yearsOfExperience;
-    }
-  }
-
-  addAttribute(key: string, value: any) {
-    (this as any)[key] = value;
-  }
 }
 
 const teacher3: Teacher = {
@@ -61,7 +32,7 @@ const director1: Directors = {
 
 console.log(director1);
 
-// Printing teachers
+// // Printing teachers
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -69,7 +40,6 @@ interface printTeacherFunction {
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName[0]}. ${lastName}`;
 };
-
 console.log(printTeacher('John', 'Doe'));
 
 // Interfaces for Student and StudentClass
@@ -93,12 +63,10 @@ class StudentClass implements StudentClassInterface {
     this.lastName = lastName;
   }
 
-  // Method to simulate working on homework
   workOnHomework(): string {
     return 'Currently working';
   }
 
-  // Method to display the student's first name
   displayName(): string {
     return this.firstName;
   }
@@ -106,6 +74,5 @@ class StudentClass implements StudentClassInterface {
 
 const student1 = new StudentClass('Binyam', 'Techan');
 
-// Log the student's methods and attributes
 console.log(student1.workOnHomework());
-console.log(student1.displayName()); 
+console.log(student1.displayName());

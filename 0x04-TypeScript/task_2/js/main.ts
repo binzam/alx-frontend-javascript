@@ -45,7 +45,9 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Director();
   }
 }
-
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee('$500'));
 
 function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
@@ -58,7 +60,8 @@ function executeWork(employee: Director | Teacher): string {
     return employee.workTeacherTasks();
   }
 }
-
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
 
 // String Literal Type for Subjects
 type Subjects = 'Math' | 'History';
@@ -74,11 +77,5 @@ function teachClass(todayClass: Subjects): string {
   }
 }
 
-// Example and testing
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
-console.log(executeWork(createEmployee(200)));
-console.log(executeWork(createEmployee(1000)));
 console.log(teachClass('Math'));
 console.log(teachClass('History'));
